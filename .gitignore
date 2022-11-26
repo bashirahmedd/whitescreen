@@ -1,0 +1,31 @@
+# Java Compiled Classes
+target/
+*/*.class
+
+# Object files
+*.o
+
+# Libraries
+*.lib
+*.a
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+*.out
+
+
+# Debug files
+*.dSYM/
+*.su
+
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+.tmp_versions/
+modules.order
