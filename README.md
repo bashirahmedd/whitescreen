@@ -1,2 +1,2 @@
 # whitescreen
-Media for custom use
+Media player application for custom use
