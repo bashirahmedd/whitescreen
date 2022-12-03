@@ -1,0 +1,5 @@
+- mode: shuffle the given files in the list
+- mode: randomly pick file to play from the list
+- display custom and beautiful marquee 
+    -scheduled from rest api
+- play the given web video stream customing endpiont with failover locally available video file

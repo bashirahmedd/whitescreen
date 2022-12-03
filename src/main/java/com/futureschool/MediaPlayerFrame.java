@@ -21,22 +21,18 @@ public class MediaPlayerFrame extends JFrame {
 
     public MediaPlayerFrame(String title) {
         super(title);
-        monitorScreenController = new MonitorScreenController();
-    }
-
-    public void initialize() {
 
         Window w = monitorScreenController.getTargetMonitor();
-        if(w==null){
+        if (w == null) {
             logger.log(Level.INFO, "Secondary display not found, primary display used instead.");
-            w=this;
+            w = this;
         }
-
-        mediaPlayerComponent = new EmbeddedMediaPlayerComponent(  null,
-        null,
-        new AdaptiveFullScreenStrategy(w),
-        null,
-        null) {
+        monitorScreenController = new MonitorScreenController();
+        mediaPlayerComponent = new EmbeddedMediaPlayerComponent(null,
+                null,
+                new AdaptiveFullScreenStrategy(w),
+                null,
+                null) {
             @Override
             public void playing(MediaPlayer mediaPlayer) {
                 super.playing(mediaPlayer);
@@ -49,6 +45,10 @@ public class MediaPlayerFrame extends JFrame {
                 System.out.println("Media Playback finished.");
             }
         };
+    }
+
+    public void initialize() {
+        
         this.setBounds(100, 100, 600, 400);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.addWindowListener(new WindowAdapter() {
@@ -58,6 +58,7 @@ public class MediaPlayerFrame extends JFrame {
                 System.exit(0);
             }
         });
+
         JPanel contentPane = new JPanel();
         contentPane.setLayout(new BorderLayout());
         contentPane.add(mediaPlayerComponent, BorderLayout.CENTER);

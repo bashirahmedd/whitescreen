@@ -8,11 +8,14 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JToggleButton;
 import javax.swing.border.Border;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import uk.co.caprica.vlcj.player.component.EmbeddedMediaPlayerComponent;
 
 public class VideoControlsPanel extends JPanel {
 
+    private static final Logger logger = Logger.getLogger(VideoControlsPanel.class.getName());
     private JButton playButton;
     private JButton pauseButton;
     private JButton rewindButton;
@@ -63,12 +66,11 @@ public class VideoControlsPanel extends JPanel {
 
         toggleButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-               mediaPlayerComponent.mediaPlayer().fullScreen().toggle();
+                mediaPlayerComponent.mediaPlayer().fullScreen().toggle();
+
             }
 
-            
-         });
-
+        });
 
     }
 }
